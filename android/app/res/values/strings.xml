@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OneBudget</string>
+
+    <string name="widget_name">OneBudget spending</string>
+    <string name="widget_desc">This month’s spending, today’s total and a one-tap Add button</string>
+    <string name="widget_this_month">This month</string>
+    <string name="widget_empty_sub">Open OneBudget to set up</string>
+    <string name="widget_add">+ Add expense</string>
+    <string name="widget_add_short">+ Add</string>
+
+    <string name="widget_today_name">OneBudget today</string>
+    <string name="widget_today_desc">Today’s total and a one-tap Add button</string>
+    <string name="widget_today">Today</string>
+
+    <string name="widget_quick_name">OneBudget quick add</string>
+    <string name="widget_quick_desc">Four shortcuts into the keypad, one per favourite category</string>
+    <string name="widget_quick">Quick add</string>
+
+    <string name="widget_month_name">OneBudget month</string>
+    <string name="widget_month_desc">This month’s total, income, savings and a seven-day chart</string>
+    <string name="widget_chart_desc">Seven day spending chart</string>
+
+    <string name="widget_week_name">OneBudget this week</string>
+    <string name="widget_week_desc">This week’s total and a seven-day bar chart</string>
+    <string name="widget_this_week">This week</string>
+
+    <string name="widget_donut_name">OneBudget by category</string>
+    <string name="widget_donut_desc">This month’s spending as a ring, one arc per category</string>
+    <string name="widget_by_category">By category</string>
+
+    <string name="widget_trend_name">OneBudget pace</string>
+    <string name="widget_trend_desc">This month against last month, as two lines</string>
+    <string name="widget_pace">Pace this month</string>
+
+    <string name="widget_capture_name">OneBudget capture</string>
+    <string name="widget_capture_desc">Scan a bill or speak an expense, straight from the home screen</string>
+    <string name="widget_scan">Scan a bill</string>
+    <string name="widget_speak">Speak it</string>
+
+    <string name="widget_add_name">OneBudget add</string>
+    <string name="widget_add_desc">One big button that opens the quick-add picker</string>
+    <string name="widget_add_long">+  Add an expense</string>
+
+    <string name="widget_recent_name">OneBudget recent</string>
+    <string name="widget_recent_desc">The last few things you logged</string>
+    <string name="widget_recent">Recent</string>
+
+    <string name="widget_year_name">OneBudget year</string>
+    <string name="widget_year_desc">The whole year as twelve monthly bars</string>
+
+    <string name="widget_heat_name">OneBudget heatmap</string>
+    <string name="widget_heat_desc">The month as a grid of days, shaded by how much you spent</string>
+
+    <string name="widget_weekday_name">OneBudget weekdays</string>
+    <string name="widget_weekday_desc">Your average spending on each day of the week</string>
+
+    <string name="widget_compare_name">OneBudget compare</string>
+    <string name="widget_compare_desc">This month against last month, as two bars</string>
+
+    <string name="widget_ring_name">OneBudget today ring</string>
+    <string name="widget_ring_desc">Today\u2019s spending as a ring against your usual day</string>
+
+    <string name="widget_networth_name">OneBudget net worth</string>
+    <string name="widget_networth_desc">What everything adds up to, with six months behind it</string>
+
+    <string name="widget_income_name">OneBudget money in</string>
+    <string name="widget_income_desc">What came in this month, against what went out</string>
+
+    <string name="widget_bills_name">OneBudget bills due</string>
+    <string name="widget_bills_desc">What is due next, with how many days away it is</string>
+
+    <string name="widget_spark_name">OneBudget fortnight</string>
+    <string name="widget_spark_desc">The last fourteen days as a line</string>
+
+    <string name="widget_topcat_name">OneBudget biggest category</string>
+    <string name="widget_topcat_desc">Where most of the month went, as a share bar</string>
+
+    <string name="sc_add_short">Add</string>
+    <string name="sc_add">Add an expense</string>
+    <string name="sc_scan_short">Scan</string>
+    <string name="sc_scan">Scan a bill</string>
+    <string name="sc_speak_short">Speak</string>
+    <string name="sc_speak">Speak an expense</string>
+    <string name="sc_today_short">Today</string>
+    <string name="sc_today">Today\u2019s summary</string>
+</resources>

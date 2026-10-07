@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bRoot" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="13dp" android:background="@drawable/widget_bg_light">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView android:id="@+id/bLabel" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="Bills due" android:textSize="11sp" android:textStyle="bold"
+            android:maxLines="1" android:ellipsize="end" android:textColor="#767676" />
+        <TextView android:id="@+id/bTotal" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="" android:textSize="10sp" android:maxLines="1" android:ellipsize="end" android:textColor="#767676" />
+    </LinearLayout>
+    <TextView android:id="@+id/b1" android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:gravity="center_vertical" android:maxLines="1" android:ellipsize="end"
+        android:layout_marginTop="4dp" android:text="" android:textSize="12sp" android:textStyle="bold" android:textColor="#191919" />
+    <TextView android:id="@+id/b2" android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:gravity="center_vertical" android:maxLines="1" android:ellipsize="end"
+        android:text="" android:textSize="12sp" android:textStyle="bold" android:textColor="#191919" />
+    <TextView android:id="@+id/b3" android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:gravity="center_vertical" android:maxLines="1" android:ellipsize="end"
+        android:text="" android:textSize="12sp" android:textStyle="bold" android:textColor="#191919" />
+</LinearLayout>

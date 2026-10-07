@@ -1,0 +1,10 @@
+{
+  "name": "OneBudget — expense tracker",
+  "short_name": "OneBudget",
+  "description": "Local-first expense tracker with voice entry and a home-screen widget. Works offline, no account needed.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#F2F2F2",
+  "theme_color": "#F2F2F2",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

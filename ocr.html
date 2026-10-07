@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>OneBudget OCR</title></head>
+<body>
+<!-- Runs in a hidden WebView on a virtual https origin so the OCR engine's
+     worker + wasm + language data can be fetched from bundled assets. -->
+<script src="vendor/tesseract.min.js"></script>
+<script src="ocr.js"></script>
+</body>
+</html>

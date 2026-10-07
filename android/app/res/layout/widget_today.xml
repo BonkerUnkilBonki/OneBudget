@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tRoot" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="horizontal" android:gravity="center_vertical" android:padding="13dp"
+    android:background="@drawable/widget_bg_light">
+    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:orientation="vertical">
+        <TextView android:id="@+id/tLabel" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/widget_today" android:textSize="11sp" android:textStyle="bold" android:textColor="#767676" />
+        <TextView android:id="@+id/tAmount" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="₹0" android:textSize="25sp" android:textStyle="bold" android:includeFontPadding="false"
+            android:maxLines="1" android:ellipsize="end" android:textColor="#1B6EF3" />
+        <TextView android:id="@+id/tSub" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="" android:textSize="11sp" android:maxLines="1" android:ellipsize="end" android:textColor="#767676" />
+    </LinearLayout>
+    <TextView android:id="@+id/tAdd" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:paddingLeft="12dp" android:paddingRight="12dp" android:paddingTop="7dp" android:paddingBottom="7dp"
+        android:background="@drawable/widget_pill" android:text="@string/widget_add_short"
+        android:textSize="12sp" android:textStyle="bold" android:textColor="#FFFFFF" />
+</LinearLayout>

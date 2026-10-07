@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Long-press the app icon: the four things worth reaching for -->
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="add"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/sc_add_short"
+        android:shortcutLongLabel="@string/sc_add">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.onebudget"
+            android:targetClass="com.onebudget.MainActivity">
+            <extra android:name="action" android:value="quickadd" />
+        </intent>
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="scan"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/sc_scan_short"
+        android:shortcutLongLabel="@string/sc_scan">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.onebudget"
+            android:targetClass="com.onebudget.MainActivity">
+            <extra android:name="action" android:value="scan" />
+        </intent>
+    </shortcut>
+    <shortcut
+        android:shortcutId="speak"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/sc_speak_short"
+        android:shortcutLongLabel="@string/sc_speak">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.onebudget"
+            android:targetClass="com.onebudget.MainActivity">
+            <extra android:name="action" android:value="speak" />
+        </intent>
+    </shortcut>
+    <shortcut
+        android:shortcutId="today"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/sc_today_short"
+        android:shortcutLongLabel="@string/sc_today">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.onebudget"
+            android:targetClass="com.onebudget.MainActivity">
+            <extra android:name="action" android:value="today" />
+        </intent>
+    </shortcut>
+</shortcuts>

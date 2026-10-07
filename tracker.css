@@ -1,0 +1,834 @@
+/* ============================================================
+   OneBudget — tracker components on top of the One UI design system
+   (everything above this line is the original One UI 9 design system)
+   ============================================================ */
+
+/* ---------- floating add button ---------- */
+#fab{position:fixed;right:20px;bottom:96px;width:62px;height:62px;border-radius:50%;background:var(--accent);color:var(--accentText,#fff);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px var(--glow),0 6px 18px rgba(0,0,0,.22);z-index:32;transition:transform .18s cubic-bezier(.2,.8,.25,1),box-shadow .2s}
+#fab:active{transform:scale(.9)}
+#fab svg{width:28px;height:28px}
+@media (min-width:1080px){#fab{right:34px;bottom:34px}}
+
+/* ---------- money typography ---------- */
+.num{font-variant-numeric:tabular-nums;letter-spacing:-.4px}
+.amt-hero{font-size:38px;font-weight:700;letter-spacing:-1.2px;line-height:1.15}
+.amt-hero.neg{color:var(--danger)}
+.amt{font-weight:700;font-size:15px;white-space:nowrap}
+.amt.exp{color:var(--text)}
+.amt.inc{color:var(--ok)}
+.amt.big{font-size:19px}
+
+/* ---------- summary card ---------- */
+.sumcard{background:var(--card);border-radius:32px;padding:24px 22px 20px;margin:0 0 14px;position:relative;overflow:hidden}
+.sumlabel{font-size:13px;font-weight:600;color:var(--text2);display:flex;align-items:center;justify-content:space-between;gap:10px}
+.sumdelta{font-size:12.5px;font-weight:700;padding:4px 10px;border-radius:12px;background:var(--chip);color:var(--text2)}
+.sumdelta.up{background:rgba(229,57,53,.12);color:var(--danger)}
+.sumdelta.down{background:rgba(46,160,67,.14);color:var(--ok)}
+.sumsub{font-size:12.5px;color:var(--text2);margin-top:6px}
+.ringrow{display:flex;align-items:center;gap:20px;margin-top:18px}
+.ring{--p:0;width:104px;height:104px;border-radius:50%;flex-shrink:0;position:relative;display:flex;align-items:center;justify-content:center;background:conic-gradient(var(--ringc,var(--accent)) calc(var(--p) * 1%),var(--chip) 0);transition:background .4s}
+.ring::before{content:'';position:absolute;inset:11px;border-radius:50%;background:var(--card)}
+.ring .ringmid{position:relative;text-align:center;line-height:1.15}
+.ring .ringmid b{display:block;font-size:21px;font-weight:700;letter-spacing:-.5px}
+.ring .ringmid span{font-size:10.5px;color:var(--text2);font-weight:600}
+.ring.over{--ringc:var(--danger)}
+.ring.warn{--ringc:#F59E0B}
+.ringstats{flex:1;min-width:0;display:flex;flex-direction:column;gap:11px}
+.ringstat{display:flex;align-items:baseline;justify-content:space-between;gap:10px;font-size:13px}
+.ringstat span{color:var(--text2);font-weight:600}
+.ringstat b{font-weight:700;font-size:14.5px}
+
+/* quick stat pills (reuses .pstat look) */
+.qstats{display:flex;gap:8px;margin:0 0 14px}
+.qstat{flex:1;background:var(--card);border-radius:22px;padding:13px 12px;text-align:center;min-width:0}
+.qstat b{display:block;font-size:16px;font-weight:700;letter-spacing:-.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qstat span{font-size:11px;color:var(--text2);font-weight:600}
+
+/* ---------- transaction rows ---------- */
+.txrow{display:flex;align-items:center;gap:14px;padding:13px 20px;border-bottom:1px solid var(--divider);cursor:pointer;transition:background .15s}
+.txrow:last-child{border-bottom:none}
+.txrow:active{background:var(--chip)}
+.catico{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--chip);color:var(--text2)}
+.catico svg{width:20px;height:20px}
+.txmain{flex:1;min-width:0}
+.txtitle{font-weight:600;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.txsub{font-size:12px;color:var(--text2);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.txamt{text-align:right;flex-shrink:0}
+.txamt small{display:block;font-size:10.5px;color:var(--text2);font-weight:600;margin-top:1px}
+
+.dayhead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:20px 8px 9px}
+.dayhead b{font-size:15px;font-weight:700}
+.dayhead span{font-size:12.5px;color:var(--text2);font-weight:600}
+
+/* ---------- category breakdown bars ---------- */
+.barow{margin-top:15px}
+.barow .barline{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13.5px;margin-bottom:7px}
+.barow .barline .bname{display:flex;align-items:center;gap:9px;font-weight:600;min-width:0}
+.barow .barline .bname span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.barow .barline b{font-weight:700;flex-shrink:0}
+.barow .bname i{width:10px;height:10px;border-radius:50%;flex-shrink:0;display:block}
+.bartrack{height:8px;border-radius:4px;background:var(--seg);overflow:hidden}
+.bartrack i{display:block;height:100%;border-radius:4px;transition:width .45s cubic-bezier(.2,.8,.25,1)}
+.pcttxt{font-size:11.5px;color:var(--text2);font-weight:600;margin-top:5px}
+
+/* ---------- budget rows ---------- */
+.budrow{display:flex;align-items:center;gap:14px;padding:15px 20px;border-bottom:1px solid var(--divider);cursor:pointer}
+.budrow:last-child{border-bottom:none}
+.budrow:active{background:var(--chip)}
+.budmain{flex:1;min-width:0}
+.budtop{display:flex;align-items:baseline;justify-content:space-between;gap:10px;font-size:14px;font-weight:600}
+.budtop b{font-weight:700}
+.budtrack{height:8px;border-radius:4px;background:var(--seg);overflow:hidden;margin-top:9px}
+.budtrack i{display:block;height:100%;border-radius:4px;transition:width .45s}
+.budmeta{display:flex;justify-content:space-between;gap:10px;font-size:11.5px;color:var(--text2);font-weight:600;margin-top:7px}
+.budmeta .over{color:var(--danger)}
+
+/* ---------- charts ---------- */
+.chartwrap{margin-top:18px}
+.chart{display:flex;align-items:flex-end;gap:8px;height:132px;padding:4px 2px 0}
+.chartcol{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:7px;min-width:0;cursor:pointer}
+.chartbar{width:100%;max-width:40px;border-radius:10px 10px 6px 6px;background:var(--accent);opacity:.45;min-height:4px;transition:opacity .2s,height .45s cubic-bezier(.2,.8,.25,1)}
+.chartcol.cur .chartbar{opacity:1;box-shadow:0 0 16px var(--glow)}
+.chartcol:active .chartbar{opacity:.8}
+.chartcol i{font-style:normal;font-size:10.5px;color:var(--text2);font-weight:600;white-space:nowrap}
+.chartcol b{font-size:10.5px;font-weight:700;color:var(--text2);white-space:nowrap}
+.chartcol.cur b{color:var(--accent)}
+
+.donutrow{display:flex;align-items:center;gap:22px;margin-top:18px}
+.donut{width:132px;height:132px;border-radius:50%;flex-shrink:0;position:relative;background:conic-gradient(var(--seg) 0)}
+.donut::before{content:'';position:absolute;inset:22px;border-radius:50%;background:var(--card)}
+.donut .dmid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;line-height:1.2}
+.donut .dmid b{font-size:17px;font-weight:700;letter-spacing:-.4px}
+.donut .dmid span{font-size:10px;color:var(--text2);font-weight:600}
+.legend{flex:1;min-width:0;display:flex;flex-direction:column;gap:9px}
+.legrow{display:flex;align-items:center;gap:9px;font-size:13px;min-width:0}
+.legrow i{width:10px;height:10px;border-radius:50%;flex-shrink:0;display:block}
+.legrow span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
+.legrow b{font-weight:700;flex-shrink:0}
+.legrow em{font-style:normal;font-size:11px;color:var(--text2);font-weight:600;min-width:34px;text-align:right}
+
+/* ---------- month navigation ---------- */
+.mnav{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--card);border-radius:22px;padding:6px 8px;margin:0 0 14px}
+.mnav b{font-size:14.5px;font-weight:700}
+.mnav .iconbtn{width:38px;height:38px;background:var(--chip)}
+.mnav .iconbtn svg{width:19px;height:19px}
+
+/* ---------- category picker grid ---------- */
+.catgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:6px}
+.catcell{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;padding:11px 3px 9px;border-radius:20px;background:var(--chip);transition:transform .15s,box-shadow .2s,background .2s;min-width:0;min-height:84px}
+.catcell:active{transform:scale(.94)}
+.catcell.on{background:var(--accent);color:var(--accentText,#fff);box-shadow:0 6px 20px var(--glow)}
+.catcell .catico{width:40px;height:40px;background:transparent;color:inherit}
+.catcell span{font-size:10px;font-weight:600;max-width:100%;text-align:center;line-height:1.25;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  overflow-wrap:break-word;word-break:normal;hyphens:none}
+.catcell .catico svg{width:21px;height:21px}
+@media (max-width:360px){.catgrid{grid-template-columns:repeat(3,1fr)}}
+
+/* type toggle (expense / income) */
+.typetog{display:flex;background:var(--seg);border-radius:22px;padding:4px;margin:4px 0 14px}
+.typetog button{flex:1;min-height:44px;border-radius:18px;font-weight:700;font-size:14px;color:var(--text2);display:flex;align-items:center;justify-content:center;gap:8px;transition:all .18s}
+.typetog button svg{width:17px;height:17px}
+.typetog button.on{background:var(--card);color:var(--accent);box-shadow:0 3px 14px var(--glow)}
+.typetog button.on.inc{color:var(--ok)}
+
+/* big amount entry */
+.amountbox{background:var(--chip);border-radius:26px;padding:20px 22px;display:flex;align-items:center;gap:12px}
+.amountbox .cur{font-size:26px;font-weight:700;color:var(--text2)}
+.amountbox input{flex:1;min-width:0;border:none;outline:none;background:none;color:var(--text);font-size:34px;font-weight:700;letter-spacing:-1px;font-variant-numeric:tabular-nums;padding:0}
+.amountbox input::placeholder{color:var(--text2);opacity:.5}
+
+/* chips row for quick options */
+.pillrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.pillrow .chip{transition:transform .15s,box-shadow .2s}
+.pillrow .chip.on{background:var(--accent);color:var(--accentText,#fff);box-shadow:0 4px 14px var(--glow)}
+.pillrow .chip:active{transform:scale(.95)}
+
+/* settings rows reuse .lrow/.setrow */
+.setcard .lrow{padding:15px 20px}
+.lrow .rval{margin-left:auto;font-size:13px;color:var(--text2);font-weight:600;flex-shrink:0;display:flex;align-items:center;gap:6px}
+.lrow .rval svg{width:16px;height:16px}
+.swatch{width:22px;height:22px;border-radius:50%;flex-shrink:0;display:block;border:1px solid var(--divider)}
+
+/* sync / account card */
+.synccard{display:flex;align-items:center;gap:14px;padding:16px 20px}
+.synccard .avatar{width:46px;height:46px;border-radius:50%;flex-shrink:0;background:var(--chip);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;color:var(--text2);overflow:hidden}
+.synccard .avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.synccard .sname{font-weight:700;font-size:15px}
+.synccard .smeta{font-size:12px;color:var(--text2);margin-top:2px}
+
+/* import/export textarea */
+.jsonbox{width:100%;border:none;background:var(--chip);border-radius:20px;padding:16px;font-size:12px;line-height:1.5;color:var(--text);min-height:170px;resize:vertical;outline:none;font-family:ui-monospace,Menlo,Consolas,monospace}
+.jsonbox:focus{box-shadow:0 0 18px var(--glow)}
+
+/* misc */
+.rowgap{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.inline{display:flex;gap:10px;align-items:center}
+.inline .fld{flex:1;min-width:0}
+.tintok{background:rgba(46,160,67,.14);color:var(--ok)}
+.tintwarn{background:rgba(245,158,11,.16);color:#B26A00}
+.tintbad{background:rgba(229,57,53,.12);color:var(--danger)}
+.hint{font-size:12px;color:var(--text2);line-height:1.6;margin:10px 4px 0}
+.emptystate{text-align:center;padding:44px 22px}
+.emptystate .catico{width:64px;height:64px;margin:0 auto 16px;background:var(--chip)}
+.emptystate .catico svg{width:30px;height:30px}
+.emptystate b{display:block;font-size:16px;margin-bottom:7px}
+.emptystate p{color:var(--text2);font-size:13.5px;line-height:1.6;margin:0}
+#view{padding-bottom:180px}
+
+/* ---------- month nav label + month picker grid ---------- */
+.mnavlbl{display:flex;align-items:center;gap:6px;color:var(--text);cursor:pointer;padding:6px 10px;border-radius:16px;transition:background .15s}
+.mnavlbl:active{background:var(--chip)}
+.mnavlbl svg{width:16px;height:16px;opacity:.6}
+#mpgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;background:transparent;padding:0;margin:0}
+#mpgrid .segb{min-height:48px;background:var(--chip);border-radius:16px}
+#mpgrid .segb.on{background:var(--accent);color:var(--accentText,#fff)}
+
+/* compact icon picker (category editor) */
+#ctIcons{grid-template-columns:repeat(6,minmax(0,1fr));gap:7px}
+#ctIcons .catcell{min-height:0;padding:8px 4px;border-radius:16px}
+#ctIcons .catcell .catico{width:32px;height:32px}
+#ctIcons .catcell .catico svg{width:18px;height:18px}
+@media (max-width:360px){#ctIcons{grid-template-columns:repeat(5,1fr)}}
+/* keep the FAB clear of the last list row */
+#fab{bottom:104px}
+
+/* ============================================================
+   v2 — charts, KPI tiles, heatmaps, goals, wallets
+   ============================================================ */
+
+/* ---------- KPI tile grid ---------- */
+.kpis{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;margin:0 0 14px}
+.kpi{background:var(--card);border-radius:24px;padding:15px 16px 13px;min-width:0;position:relative;overflow:hidden}
+.kpi .klabel{font-size:11.5px;font-weight:600;color:var(--text2);display:flex;align-items:center;gap:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kpi .klabel svg{width:14px;height:14px;flex-shrink:0}
+.kpi .kval{font-size:21px;font-weight:700;letter-spacing:-.5px;margin-top:7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kpi .ksub{font-size:11px;color:var(--text2);font-weight:600;margin-top:3px}
+.kpi .kspark{margin-top:8px;height:26px}
+.trendchip{display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:700;padding:3px 8px;border-radius:11px;background:var(--chip);color:var(--text2)}
+.trendchip svg{width:12px;height:12px}
+.trendchip.up{background:rgba(229,57,53,.12);color:var(--danger)}
+.trendchip.down{background:rgba(46,160,67,.14);color:var(--ok)}
+.trendchip.flat{background:var(--chip);color:var(--text2)}
+
+/* ---------- SVG line / area chart ---------- */
+.linechart{display:block;width:100%;height:auto;overflow:visible}
+.lc-grid{stroke:var(--divider);stroke-width:1;vector-effect:non-scaling-stroke}
+.lc-line{fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.lc-line.dash{stroke-dasharray:5 5;stroke-width:1.8;opacity:.75}
+.lc-dot{stroke:var(--card);stroke-width:2;vector-effect:non-scaling-stroke}
+.lc-fill{stroke:none;opacity:.16}
+.lc-label{fill:var(--text2);font-size:9.5px;font-weight:600}
+.chartlegend{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}
+.chartlegend div{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text2);font-weight:600}
+.chartlegend i{width:10px;height:10px;border-radius:3px;display:block}
+.chartlegend i.dash{background:repeating-linear-gradient(90deg,currentColor 0 4px,transparent 4px 7px)!important;height:3px;border-radius:2px}
+.xlabels{display:flex;justify-content:space-between;font-size:10.5px;color:var(--text2);font-weight:600;margin-top:6px;padding:0 2px}
+
+/* ---------- sparkline ---------- */
+.spark{display:block;width:100%;height:100%;overflow:visible}
+.spark path{fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.spark .sparkfill{stroke:none;opacity:.18}
+
+/* ---------- month heatmap (calendar of spend) ---------- */
+.heatgrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;margin-top:14px}
+.heatcellv{aspect-ratio:1;border-radius:9px;background:var(--chip);display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:600;color:var(--text2);position:relative;transition:transform .15s}
+.heatcellv:active{transform:scale(.94)}
+.heatcellv.today{outline:2px solid var(--accent);outline-offset:-2px}
+.heatcellv.empty{background:transparent}
+.heatcellv.l1{background:var(--accent);opacity:.22;color:var(--text)}
+.heatcellv.l2{background:var(--accent);opacity:.42;color:#fff}
+.heatcellv.l3{background:var(--accent);opacity:.66;color:#fff}
+.heatcellv.l4{background:var(--accent);opacity:.88;color:#fff}
+.heatcellv.l5{background:var(--accent);opacity:1;color:#fff;font-weight:700}
+.heatdow{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;font-size:10px;color:var(--text2);font-weight:700;text-align:center;margin-top:12px}
+.heatscale{display:flex;align-items:center;gap:6px;justify-content:flex-end;font-size:10.5px;color:var(--text2);font-weight:600;margin-top:10px}
+.heatscale i{width:12px;height:12px;border-radius:4px;background:var(--accent);display:block}
+
+/* 12-week strip heatmap */
+.stripwrap{display:flex;gap:4px;overflow-x:auto;padding:4px 0 2px;scrollbar-width:none}
+.stripwrap::-webkit-scrollbar{display:none}
+.stripcol{display:flex;flex-direction:column;gap:4px;flex-shrink:0}
+.stripcell{width:13px;height:13px;border-radius:4px;background:var(--chip);flex-shrink:0}
+.stripcell.l1{background:var(--accent);opacity:.25}
+.stripcell.l2{background:var(--accent);opacity:.45}
+.stripcell.l3{background:var(--accent);opacity:.68}
+.stripcell.l4{background:var(--accent);opacity:.9}
+
+/* ---------- day-of-week bars ---------- */
+.dowbars{display:flex;align-items:flex-end;gap:8px;height:110px;margin-top:16px}
+.dowbar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:7px;min-width:0}
+.dowbar span{width:100%;max-width:34px;border-radius:9px;background:var(--accent);opacity:.55;min-height:4px;transition:height .45s}
+.dowbar.busy span{opacity:1;box-shadow:0 0 14px var(--glow)}
+.dowbar i{font-style:normal;font-size:10.5px;color:var(--text2);font-weight:600}
+.dowbar b{font-size:10px;color:var(--text2);font-weight:700}
+
+/* ---------- goal rings ---------- */
+.goalcard{display:flex;align-items:center;gap:16px;padding:16px 20px;border-bottom:1px solid var(--divider);cursor:pointer}
+.goalcard:last-child{border-bottom:none}
+.goalcard:active{background:var(--chip)}
+.goalring{--p:0;width:62px;height:62px;border-radius:50%;flex-shrink:0;position:relative;display:flex;align-items:center;justify-content:center;background:conic-gradient(var(--gc,var(--accent)) calc(var(--p) * 1%),var(--chip) 0)}
+.goalring::before{content:'';position:absolute;inset:7px;border-radius:50%;background:var(--card)}
+.goalring b{position:relative;font-size:12.5px;font-weight:700}
+.goalmain{flex:1;min-width:0}
+.goaltop{display:flex;align-items:baseline;justify-content:space-between;gap:10px;font-size:14px;font-weight:600}
+.goalsub{font-size:12px;color:var(--text2);margin-top:4px;font-weight:600}
+
+/* ---------- wallets / accounts ---------- */
+.walletrow{display:flex;align-items:center;gap:14px;padding:14px 20px;border-bottom:1px solid var(--divider);cursor:pointer}
+.walletrow:last-child{border-bottom:none}
+.walletrow:active{background:var(--chip)}
+.walletmain{flex:1;min-width:0}
+.wallettop{font-size:14.5px;font-weight:600}
+.walletsub{font-size:11.5px;color:var(--text2);font-weight:600;margin-top:3px}
+.walletbal{font-size:15px;font-weight:700;white-space:nowrap}
+
+/* ---------- recurring bills ---------- */
+.recrow{display:flex;align-items:center;gap:14px;padding:14px 20px;border-bottom:1px solid var(--divider);cursor:pointer}
+.recrow:last-child{border-bottom:none}
+.recrow:active{background:var(--chip)}
+.recmain{flex:1;min-width:0}
+.rectop{font-size:14.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.recsub{font-size:11.5px;color:var(--text2);font-weight:600;margin-top:3px}
+.recamt{text-align:right;flex-shrink:0}
+.duechip{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:10px;background:var(--chip);color:var(--text2);margin-top:4px}
+.duechip.soon{background:rgba(245,158,11,.16);color:#B26A00}
+.duechip.today{background:rgba(229,57,53,.12);color:var(--danger)}
+.duechip.paused{background:var(--chip);color:var(--text2);opacity:.8}
+
+/* ---------- compare table ---------- */
+.cmprow{display:flex;align-items:center;gap:10px;padding:12px 4px;border-bottom:1px solid var(--divider)}
+.cmprow:last-child{border-bottom:none}
+.cmprow .cname{flex:1;min-width:0;font-size:13.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cmprow .cval{width:88px;text-align:right;font-size:13.5px;font-weight:700}
+.cmprow .cdelta{width:74px;text-align:right}
+.cmphead{display:flex;gap:10px;padding:0 4px 10px;font-size:10.5px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.4px}
+.cmphead .cname{flex:1}
+.cmphead .cval,.cmphead .cdelta{width:88px;text-align:right}
+.cmphead .cdelta{width:74px}
+
+/* ---------- misc ---------- */
+.subseg{margin:0 0 14px}
+.cardhead{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.cardhead .sumlabel{flex:1;min-width:0}
+.linkbtn{color:var(--accent);font-size:12.5px;font-weight:700;flex-shrink:0;background:none;padding:4px 2px}
+.pacebtns{display:flex;gap:8px;margin-top:16px}
+.chipnote{display:inline-flex;align-items:center;gap:6px}
+.datarow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 4px;border-bottom:1px solid var(--divider);font-size:13.5px}
+.datarow:last-child{border-bottom:none}
+.datarow span{color:var(--text2);font-weight:600}
+.datarow b{font-weight:700}
+.alertrow{display:flex;align-items:center;gap:12px;padding:12px 20px;background:rgba(245,158,11,.10);border-radius:18px;margin-bottom:10px}
+.alertrow.bad{background:rgba(229,57,53,.10)}
+.alertrow svg{width:19px;height:19px;color:#B26A00;flex-shrink:0}
+.alertrow.bad svg{color:var(--danger)}
+.alertrow .atext{flex:1;min-width:0;font-size:13px;font-weight:600;line-height:1.45}
+
+/* inline icons default to a sane size (an <svg> without dimensions is 300x150) */
+svg{width:20px;height:20px;flex:none}
+.sumlabel svg,.sect svg,.cardhead svg,.klabel svg{width:17px;height:17px;opacity:.85;vertical-align:-3px}
+.sumlabel svg{margin-right:2px}
+.datarow svg,.barline svg{width:15px;height:15px}
+.barow .barline b{white-space:nowrap}
+.barow .barline .bname{flex:1}
+
+/* ---------- compact add-transaction sheet ---------- */
+.qtype{display:flex;background:var(--seg);border-radius:16px;padding:3px;margin:2px 0 10px}
+.qtype button{flex:1;min-height:34px;border-radius:13px;font-weight:700;font-size:13px;color:var(--text2);
+  display:flex;align-items:center;justify-content:center;gap:6px}
+.qtype button svg{width:15px;height:15px}
+.qtype button.on{background:var(--card);color:var(--accent);box-shadow:0 2px 10px var(--glow)}
+.qtype button.on.inc{color:var(--ok)}
+.qamount{display:flex;align-items:baseline;justify-content:center;gap:7px;padding:2px 0 10px}
+.qamount .cur{font-size:20px;font-weight:700;color:var(--text2)}
+.qamount .qval{font-size:38px;font-weight:700;letter-spacing:-1.4px;font-variant-numeric:tabular-nums;line-height:1.1}
+.qamount .qval.dim{color:var(--text2);opacity:.55}
+.qcats{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:2px 0 6px;margin-bottom:2px}
+.qcats::-webkit-scrollbar{display:none}
+.qcat{display:flex;flex-direction:column;align-items:center;gap:5px;padding:9px 10px 8px;border-radius:17px;
+  background:var(--chip);flex-shrink:0;min-width:72px;transition:transform .13s,background .15s,box-shadow .15s}
+.qcat:active{transform:scale(.94)}
+.qcat.on{background:var(--accent);color:var(--accentText,#fff);box-shadow:0 5px 16px var(--glow)}
+.qcat .catico{width:28px;height:28px;background:transparent;color:inherit}
+.qcat .catico svg{width:17px;height:17px}
+.qcat span{font-size:10px;font-weight:600;max-width:74px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qchips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px 0}
+.qchips::-webkit-scrollbar{display:none}
+.qchip{display:inline-flex;align-items:center;gap:6px;padding:9px 13px;border-radius:15px;background:var(--chip);
+  font-size:12.5px;font-weight:600;white-space:nowrap;flex-shrink:0;color:var(--text)}
+.qchip.on{background:var(--accent);color:var(--accentText,#fff)}
+.qchip svg{width:15px;height:15px}
+.qinline{margin-top:10px;background:var(--chip);border-radius:17px;padding:11px 13px}
+.qinline .fld{background:var(--card);border-radius:13px}
+.qpad{display:flex;gap:8px;margin-top:12px}
+.qkeys{flex:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.qacts{width:82px;display:flex;flex-direction:column;gap:8px}
+.qkey{height:49px;border-radius:17px;background:var(--chip);font-size:19px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;transition:transform .1s,background .15s}
+.qkey:active{transform:scale(.94);background:var(--seg)}
+.qkey svg{width:20px;height:20px}
+.qacts .qkey{flex:1;height:auto}
+.qacts .qkey.del{flex:0 0 49px;color:var(--text2)}
+.qacts .qkey.ok{background:var(--accent);color:var(--accentText,#fff);box-shadow:0 6px 20px var(--glow);font-size:22px}
+
+/* ============================================================
+   Bug fix: the page must never scroll sideways.
+   A single too-wide element used to give #scroller a horizontal
+   scroll, which shifted every screen left and clipped the first
+   column of content (calendar days, chart labels, text).
+   ============================================================ */
+#scroller{overflow-x:hidden}
+#view,#pagehead{max-width:100%}
+.heatcellv,.heatdow span,.chartcol,.qcat,.kpi{min-width:0}
+
+/* ============================================================
+   voice entry
+   ============================================================ */
+#micfab{position:fixed;right:22px;bottom:168px;width:54px;height:54px;border-radius:50%;
+  background:var(--card);color:var(--accent);display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--divider);box-shadow:0 8px 22px rgba(0,0,0,.16);z-index:31;transition:transform .16s,box-shadow .2s}
+#micfab:active{transform:scale(.9)}
+#micfab svg{width:23px;height:23px}
+body.dark #micfab,body.pitch #micfab{box-shadow:0 8px 22px rgba(0,0,0,.5)}
+
+.heard{display:flex;align-items:flex-start;gap:9px;background:var(--chip);border-radius:16px;
+  padding:11px 13px;margin:0 0 10px;font-size:12.5px;font-weight:600;color:var(--text);line-height:1.45}
+.heard svg{width:16px;height:16px;color:var(--accent);flex-shrink:0;margin-top:1px}
+
+.voicewrap{display:flex;flex-direction:column;align-items:center;gap:16px;padding:26px 10px 18px}
+.micbig{width:96px;height:96px;border-radius:50%;background:var(--accent);color:var(--accentText,#fff);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px var(--glow);transition:transform .16s}
+.micbig:active{transform:scale(.94)}
+.micbig svg{width:40px;height:40px}
+.micbig.on{animation:micpulse 1.5s ease-in-out infinite}
+@keyframes micpulse{
+  0%,100%{box-shadow:0 10px 30px var(--glow),0 0 0 0 var(--glow)}
+  50%{box-shadow:0 10px 30px var(--glow),0 0 0 18px rgba(0,0,0,0)}
+}
+.vstat{font-size:13.5px;color:var(--text2);text-align:center;line-height:1.5;max-width:280px;font-weight:600}
+.vstat.bad{color:var(--danger)}
+.vhints{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:6px 0 14px}
+.vhints .chip{font-size:11.5px}
+
+/* ============================================================
+   offline status + quick add + repeat
+   ============================================================ */
+#micfab{bottom:178px}
+.offlinechip{display:flex;align-items:center;gap:9px;background:var(--chip);border-radius:16px;
+  padding:11px 14px;margin:0 0 11px;font-size:12.5px;font-weight:600;color:var(--text2)}
+.offlinechip svg{width:16px;height:16px;flex-shrink:0}
+.saveddot{width:8px;height:8px;border-radius:50%;background:var(--ok);flex-shrink:0;box-shadow:0 0 8px rgba(46,160,67,.5)}
+.qadd{display:flex;gap:9px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:2px 0 4px;margin-bottom:11px}
+.qadd::-webkit-scrollbar{display:none}
+.qaddbtn{display:flex;flex-direction:column;align-items:center;gap:6px;background:var(--card);
+  border-radius:20px;padding:12px 10px;flex-shrink:0;min-width:84px;transition:transform .15s,box-shadow .2s}
+.qaddbtn:active{transform:scale(.95)}
+.qaddbtn span{font-size:10.5px;font-weight:600;max-width:76px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qaddbtn .catico{width:34px;height:34px}
+.qaddbtn .catico svg{width:17px;height:17px}
+
+/* toasts sit above both floating buttons instead of on top of them */
+#toasts{bottom:calc(244px + env(safe-area-inset-bottom,0px))}
+@media (min-width:1080px){#toasts{bottom:40px}}
+/* a touch more room for category names in the entry chips */
+.qcat{min-width:80px}
+
+/* ============================================================
+   bill scanning
+   ============================================================ */
+#camfab{position:fixed;right:84px;bottom:178px;width:54px;height:54px;border-radius:50%;
+  background:var(--card);color:var(--accent);display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--divider);box-shadow:0 8px 22px rgba(0,0,0,.16);z-index:31;transition:transform .16s,box-shadow .2s}
+#camfab:active{transform:scale(.9)}
+#camfab svg{width:23px;height:23px}
+body.dark #camfab,body.pitch #camfab{box-shadow:0 8px 22px rgba(0,0,0,.5)}
+.heard .linkbtn{margin-left:auto;font-size:11.5px;flex-shrink:0}
+.scanswrap{display:flex;flex-direction:column;align-items:center;gap:14px;padding:18px 10px 16px}
+.scanico{width:84px;height:84px;border-radius:50%;background:var(--chip);color:var(--accent);
+  display:flex;align-items:center;justify-content:center}
+.scanico svg{width:36px;height:36px}
+.scanico.busy{animation:scanpulse 1.4s ease-in-out infinite}
+@keyframes scanpulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.06);opacity:.7}}
+.btn svg{width:18px;height:18px;margin-right:8px;flex-shrink:0}
+
+/* toasts move to the top while a sheet is open, so they never cover the form */
+body.sheetopen #toasts{bottom:auto;top:calc(env(safe-area-inset-top,0px) + 12px)}
+/* a little more room for category names */
+.qcat{min-width:88px}
+
+/* ============================================================
+   v7 — panels pinned, rows that can never clip
+   ============================================================ */
+
+/* ---------- sheets: scrollable body + pinned actions ---------- */
+.sheetcard{display:flex;flex-direction:column;max-height:90vh;padding:0;overflow:hidden}
+.sheet-body{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:10px 14px 16px}
+.sheet-actions{flex:0 0 auto;padding:10px 14px calc(15px + env(safe-area-inset-bottom,0px));
+  border-top:1px solid var(--divider);background:var(--card);
+  box-shadow:0 -6px 18px rgba(0,0,0,.05)}
+body.dark .sheet-actions,body.pitch .sheet-actions{box-shadow:0 -6px 18px rgba(0,0,0,.35)}
+.sheet-actions .rowgap{margin-top:0}
+.sheethead{position:sticky;top:0;z-index:3;background:var(--card);margin:0 -14px 4px;padding:10px 16px 12px}
+
+/* ---------- rows: text shrinks with an ellipsis instead of being cut off ---------- */
+.recrow,.txrow,.walletrow,.budrow,.goalcard,.lrow{flex-wrap:nowrap;min-width:0}
+.recamt{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex:0 0 auto;max-width:46%;min-width:0}
+.recamt .amt{max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.duechip{max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.walletbal{max-width:42%;overflow:hidden;text-overflow:ellipsis}
+.txamt{max-width:46%;min-width:0}
+.txamt .amt{max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.txamt small{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.recmain,.walletmain,.txmain,.budmain,.goalmain{min-width:0}
+.budtop,.goaltop,.wallettop,.rectop{min-width:0}
+.budtop span,.goaltop span,.wallettop,.rectop{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.budtop b,.goaltop b{flex-shrink:0}
+
+/* custom accent picker */
+.ccprev{display:flex;align-items:center;justify-content:space-between;gap:12px;border-radius:22px;
+  padding:18px 20px;font-size:13px;font-weight:700;box-shadow:0 6px 20px rgba(0,0,0,.16)}
+.ccprev b{font-size:16px;letter-spacing:.4px}
+.ccpick{width:100%;height:56px;border:none;border-radius:18px;background:var(--chip);padding:6px;cursor:pointer}
+.accentdot.customdot{border:2px dashed var(--text2)}
+.accentdot.customdot.on{border-style:solid;border-color:var(--text)}
+
+/* ---------- tappable cards ---------- */
+.tap{cursor:pointer}
+.tap:active{transform:scale(.985)}
+.sumcard.tap:active{transform:scale(.99)}
+.kpi.tap:active{background:var(--chip)}
+.barow.tap{border-radius:14px;padding:2px 4px;margin-left:-4px;margin-right:-4px}
+.barow.tap:active{background:var(--chip)}
+.barchev{display:inline-flex;align-items:center;color:var(--text2);opacity:.6;margin-left:6px}
+.barchev svg{width:15px;height:15px}
+.card.tap .cardhead .linkbtn{pointer-events:none}
+
+/* quick-add chips: room for long names, and clear of the floating buttons */
+.qaddbtn{min-width:96px}
+.qaddbtn span{max-width:88px;font-size:10.5px}
+.qadd{padding-right:74px}
+
+/* ============================================================
+   in-app pickers (replacing the system date dialog + option menu)
+   ============================================================ */
+.dpdow{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;font-size:11px;font-weight:700;
+  color:var(--text2);text-align:center;margin-top:12px}
+.dpgrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;margin-top:8px}
+.dpcell{aspect-ratio:1;border-radius:14px;display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:600;color:var(--text);background:none;border:none;
+  transition:background .15s,transform .12s}
+.dpcell.mute{opacity:.3}
+.dpcell.today{outline:2px solid var(--accent);outline-offset:-2px;color:var(--accent);font-weight:700}
+.dpcell.sel{background:var(--accent);color:var(--accentText,#fff);font-weight:700;outline:none}
+.dpcell:active{transform:scale(.9)}
+.pickrow{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;
+  background:var(--chip);border-radius:18px;padding:15px 16px;font-size:14.5px;font-weight:600;
+  color:var(--text);text-align:left;transition:background .15s}
+.pickrow:active{background:var(--seg)}
+.pickrow svg{width:18px;height:18px;color:var(--text2);flex-shrink:0}
+.pickrow span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* ============================================================
+   add button: one button that opens a labelled stack
+   ============================================================ */
+.fabstack{position:fixed;right:18px;bottom:174px;display:flex;flex-direction:column;gap:9px;
+  align-items:flex-end;z-index:31;pointer-events:none;opacity:0;transform:translateY(14px) scale(.92);
+  transition:opacity .2s,transform .24s cubic-bezier(.2,.8,.25,1)}
+.fabstack.open{opacity:1;transform:none;pointer-events:auto}
+.fabopt{display:flex;align-items:center;gap:9px;background:var(--card);border:1px solid var(--divider);
+  border-radius:999px;padding:10px 15px;box-shadow:0 8px 22px rgba(0,0,0,.18);color:var(--text);
+  font-size:13px;font-weight:600;white-space:nowrap;transition:transform .15s,background .15s}
+.fabopt:active{transform:scale(.95)}
+.fabopt svg{width:19px;height:19px;color:var(--accent);flex-shrink:0}
+body.dark .fabopt,body.pitch .fabopt{box-shadow:0 8px 22px rgba(0,0,0,.5)}
+#fab svg{transition:transform .24s cubic-bezier(.2,.8,.25,1)}
+#fab.open svg{transform:rotate(45deg)}
+@media (min-width:1080px){.fabstack{right:34px;bottom:110px}}
+
+/* ============================================================
+   Today tab — summary, demographics, timeline
+   ============================================================ */
+.aicard{background:var(--card);border:1px solid var(--divider);border-radius:26px;padding:18px;position:relative;overflow:hidden}
+.aicard::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--glow2),transparent 62%);pointer-events:none}
+.aihead{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:var(--text2);position:relative}
+.aihead svg{width:16px;height:16px;color:var(--accent)}
+.aibadge{margin-left:auto;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;
+  background:var(--accent-soft,var(--chip));color:var(--accent);padding:3px 9px;border-radius:10px}
+.aitext{position:relative;font-size:15px;line-height:1.62;margin:11px 0 0;color:var(--text);letter-spacing:-.1px}
+.aifoot{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px}
+
+.timebar{display:flex;height:12px;border-radius:6px;overflow:hidden;gap:2px;margin-top:14px;background:var(--seg)}
+.timebar i{display:block;height:100%;min-width:3px}
+.timelegend{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.tlrow{display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:600}
+.tlrow i{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.tlrow span{flex:1;min-width:0;color:var(--text2)}
+.tlrow b{font-weight:700}
+.tlrow em{font-style:normal;font-size:11px;color:var(--text2);font-weight:600;min-width:34px;text-align:right}
+
+.timeline{position:relative;margin-top:12px}
+.timeline::before{content:'';position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--divider);border-radius:1px}
+.tlitem{display:flex;align-items:center;gap:11px;padding:9px 2px;position:relative;cursor:pointer;border-radius:12px}
+.tlitem:active{background:var(--chip)}
+.tldot{width:12px;height:12px;border-radius:50%;flex-shrink:0;border:2px solid var(--card);z-index:1}
+.tltime{font-size:11.5px;color:var(--text2);font-weight:600;min-width:44px;font-variant-numeric:tabular-nums}
+.tlwhat{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.3}
+.tlwhat b{font-size:13.5px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tlwhat em{font-style:normal;font-size:11px;color:var(--text2);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tlitem .amt{flex-shrink:0;font-size:14px}
+
+.tiprow{display:flex;align-items:flex-start;gap:10px;padding:10px 2px;border-bottom:1px solid var(--divider);font-size:13.5px;line-height:1.5}
+.tiprow:last-child{border-bottom:none}
+.tiprow svg{width:17px;height:17px;color:var(--accent);flex-shrink:0;margin-top:2px}
+.tiprow span{color:var(--text)}
+
+/* ---------- toasts: always at the top, clear of content and buttons ---------- */
+#toasts{top:calc(env(safe-area-inset-top,0px) + 66px);bottom:auto}
+body.sheetopen #toasts{top:calc(env(safe-area-inset-top,0px) + 12px)}
+
+/* ---------- the add dial dims the page behind it ---------- */
+.fabstack::before{content:'';position:fixed;inset:0;background:rgba(0,0,0,.3);opacity:0;
+  pointer-events:none;transition:opacity .22s;z-index:-1}
+.fabstack.open::before{opacity:1;pointer-events:auto}
+
+/* ---------- roomier donut legend and quick-add chips ---------- */
+.donutrow{gap:16px}
+.donut{width:112px;height:112px}
+.dmid b{font-size:17px}
+.legrow{font-size:12.5px;gap:7px}
+.legrow em{min-width:30px;font-size:10.5px}
+.qaddbtn{min-width:104px}
+.qaddbtn span{max-width:96px}
+
+/* donut + legend: the legend drops below the ring rather than truncating names */
+.donutrow{flex-wrap:wrap;gap:18px;align-items:center}
+.donut{width:120px;height:120px;margin:0 auto}
+.legend{flex:1 1 200px;min-width:200px}
+.legrow span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ---------- two buttons on one line ---------- */
+.btnrow{display:flex;gap:10px}
+.btnrow .btn{flex:1;min-width:0}
+
+/* ---------- sheet grab handle ---------- */
+.sheetgrab{display:flex;justify-content:center;align-items:center;padding:9px 0 3px;flex-shrink:0;cursor:grab;touch-action:none}
+.sheetgrab i{display:block;width:38px;height:4px;border-radius:2px;background:var(--divider)}
+.sheethead{touch-action:none}
+
+/* while typing, refreshed regions must not replay their entrance animation */
+.noanim, .noanim *{animation:none!important}
+
+/* ============================================================
+   Quick add picker
+   ============================================================ */
+.qaddbtn.lead{background:var(--accent);color:var(--accentText,#fff);min-width:104px}
+.qaddbtn.lead svg{color:inherit;width:18px;height:18px}
+.qa-methods{display:flex;gap:8px;margin:4px 0 2px}
+.qam{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding:13px 4px;border-radius:20px;
+  background:var(--chip);font-size:11.5px;font-weight:600;color:var(--text);transition:background .15s,transform .12s}
+.qam svg{width:20px;height:20px;color:var(--accent)}
+.qam:active{transform:scale(.96)}
+.qgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.qpick{display:flex;flex-direction:column;align-items:center;gap:7px;padding:12px 4px;border-radius:20px;
+  background:var(--chip);font-size:11px;font-weight:600;color:var(--text);text-align:center;transition:transform .12s}
+.qpick:active{transform:scale(.96)}
+.qpickico{width:34px;height:34px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.qpickico svg{width:18px;height:18px}
+.qpickname{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* ============================================================
+   Material icons — icons sitting in organic morphing shapes
+   ============================================================ */
+.catico.mico{background:transparent!important;position:relative;color:inherit}
+.catico.mico .mshape{position:absolute;inset:0;width:100%!important;height:100%!important}
+.catico.mico .mglyph{position:relative;z-index:1;width:46%!important;height:46%!important;color:currentColor}
+body.reducemotion .catico.mico .mshape path{animation:none!important}
+
+/* net worth card */
+.nwcard .amt-hero{letter-spacing:-1px}
+
+/* ============================================================
+   Every press in the entry panel flashes with the accent glow
+   ============================================================ */
+.qkey, .qcat, .qchip, .qtype button {
+  transition: transform .12s cubic-bezier(.2,.8,.25,1), background .15s, box-shadow .22s;
+}
+@keyframes keyglow {
+  0%   { box-shadow: 0 0 0 0 var(--glow), 0 0 26px 7px var(--glow); transform: scale(.93); }
+  55%  { box-shadow: 0 0 0 7px rgba(0,0,0,0), 0 0 22px 3px var(--glow); transform: scale(.97); }
+  100% { box-shadow: 0 0 0 0 rgba(0,0,0,0), 0 0 0 0 rgba(0,0,0,0); transform: none; }
+}
+.press-glow { animation: keyglow .5s cubic-bezier(.2,.8,.25,1); }
+body.reducemotion .press-glow { animation: none; }
+
+/* ============================================================
+   Toasts with an action (Undo), and template cells
+   ============================================================ */
+.toast.hasact{display:flex;align-items:center;gap:12px;padding-right:8px;max-width:92%}
+.toastact{background:transparent;border:none;color:var(--accent);font-size:13.5px;font-weight:700;
+  padding:4px 8px;border-radius:12px;letter-spacing:.2px}
+body.dark .toastact,body.pitch .toastact{color:var(--accent)}
+.toastact:active{background:var(--chip)}
+.qpickamt{font-size:10.5px;font-weight:700;color:var(--text2);margin-top:-3px}
+
+/* ============================================================
+   DENSITY PASS
+   The cards, rows and section gaps were carrying far too much
+   air, especially in Settings — a screen of one-line rows was
+   taller than it needed to be and pushed real content off the
+   bottom. This tightens the whole scale, not one screen.
+   ============================================================ */
+.card{padding:16px;border-radius:24px;margin:0 0 10px}
+.sumcard{padding:17px 16px 15px;border-radius:24px;margin:0 0 10px}
+.sect{font-size:16.5px;margin:17px 4px 8px}
+.setcard{padding:5px 0}
+.setcard .lrow{padding:11px 16px}
+.ltitle{font-size:14.5px}
+.lsub{margin-top:2px}
+.kpi{border-radius:20px;padding:12px 13px 11px}
+.kpi .kval{font-size:19px;margin-top:5px}
+.qstat{border-radius:18px;padding:11px 10px}
+.datarow{padding:8px 3px}
+.qstats{gap:7px;margin:0 0 10px}
+.rowgap{gap:9px;margin-top:12px}
+.chip{padding:4px 10px;border-radius:11px}
+.sumlabel{font-size:12.5px}
+.card.list .lrow{padding:11px 4px}
+
+/* ---- and tighter again: rows ~46px, sections ~19px apart ---- */
+.card{padding:14px;border-radius:22px;margin:0 0 8px}
+.sumcard{padding:15px 14px 13px;border-radius:22px;margin:0 0 8px}
+.sect{font-size:15.5px;margin:13px 4px 6px;letter-spacing:-.1px}
+.setcard{padding:3px 0}
+.setcard .lrow{padding:7px 15px}
+.card.list .lrow{padding:9px 3px}
+.ltitle{font-size:14px;line-height:1.25}
+.lsub{font-size:12px;line-height:1.25;margin-top:1px}
+.kpi{padding:11px 12px 10px;border-radius:18px}
+.kpi .kval{font-size:18px;margin-top:4px}
+.qstat{padding:10px 9px;border-radius:16px}
+.datarow{padding:7px 3px}
+.rowgap{gap:8px;margin-top:11px}
+.chip{padding:4px 9px;border-radius:10px}
+.sumlabel{font-size:12px}
+.emptystate{padding:18px 10px 14px}
+#pagehead{padding:11px 16px 9px}
+#view{padding:4px 11px 96px}
+
+/* the accent picker sat looser than everything around it */
+.accentrow{gap:11px}
+.accentdot{width:34px;height:34px}
+
+/* keep the last card clear of the floating buttons */
+#view{padding-bottom:140px}
+
+/* ============================================================
+   Same density pass, now on the list rows used across the app.
+   These kept their own 13-16px padding on top of the card's, so
+   a row sat 34px in from the edge and stood ~64px tall.
+   ============================================================ */
+.txrow, .budrow, .recrow, .walletrow{padding:9px 4px;gap:12px}
+.goalcard{padding:10px 4px;gap:13px}
+.dayhead{padding:13px 6px 6px}
+.dayhead b{font-size:14.5px}
+.chartwrap{margin-top:12px}
+.goalring{width:50px;height:50px}
+.goalring::before{inset:6px}
+.goalring b{font-size:11.5px}
+.duechip{padding:2px 7px;border-radius:9px;margin-top:3px}
+
+/* the 42px category chip was setting the floor for every list row */
+.catico{width:34px;height:34px}
+.catico svg{width:17px;height:17px}
+.goalring{width:44px;height:44px}
+.goalring b{font-size:11px}
+
+/* ============================================================
+   Forms and the account editor — the fields were the tallest
+   things left in the app.
+   ============================================================ */
+.fld{padding:12px 15px;border-radius:16px}
+.fldlabel{margin:0 4px 6px}
+.amountbox{border-radius:20px;padding:15px 17px;gap:10px}
+.amountbox .cur{font-size:22px}
+.amountbox input{font-size:28px}
+.morebtn{min-height:42px;border-radius:20px;margin:0 0 10px}
+.hint{margin:8px 4px 0;line-height:1.5}
+.synccard{padding:10px 4px;gap:12px;width:100%;text-align:left;background:none;border:none;color:inherit}
+.synccard:active{background:var(--chip);border-radius:14px}
+.synccard .avatar{width:38px;height:38px;font-size:15px}
+.synccard .sname{font-size:14px}
+.catgrid{gap:8px}
+.catcell{padding:9px 3px 7px;border-radius:16px;min-height:0}
+.qpad{margin-top:10px}
+
+/* ============================================================
+   TIGHTER STILL — the controls that set the floor everywhere:
+   the search bar, the segmented switches, the month nav, the
+   buttons, the summary tiles and the editor inputs.
+   ============================================================ */
+.searchbar{min-height:46px;border-radius:20px;padding:0 15px;margin:2px 0 9px}
+.searchbar input{min-height:46px;font-size:14.5px}
+.searchbar svg{width:18px;height:18px}
+.seg{border-radius:20px;padding:3px;margin:0 0 9px}
+.segb{min-height:36px;border-radius:17px;font-size:13.5px}
+.seg.sm .segb{min-height:32px;font-size:12.5px;border-radius:15px}
+.mnav{border-radius:18px;padding:4px 6px;margin:0 0 10px}
+.mnav b{font-size:14px}
+.mnav .iconbtn{width:32px;height:32px}
+.mnav .iconbtn svg{width:17px;height:17px}
+.btn{min-height:44px;border-radius:22px;padding:0 22px;font-size:14.5px}
+.iconbtn{width:36px;height:36px}
+.sheethead{padding:8px 16px 10px;margin:0 -14px 2px}
+.sheethead b{font-size:14.5px}
+.qstat{padding:9px 8px;border-radius:15px}
+.qstat b{font-size:15px}
+.qstat span{font-size:10.5px}
+.amountbox{padding:12px 15px;border-radius:17px}
+.amountbox .cur{font-size:20px}
+.amountbox input{font-size:25px}
+.catgrid{gap:7px;margin-top:4px}
+.catcell{padding:7px 3px 6px;border-radius:14px}
+.accentrow{gap:9px}
+.hint{font-size:11.5px;line-height:1.45}
+.dayhead{padding:11px 6px 5px}
+.kpi .kval{font-size:17.5px}
+.datarow{font-size:13px}
+
+/* ============================================================
+   ONE-HAND MODE
+   Everything tighter again, and shaped for a thumb: shorter
+   panels, a lower add button, bigger bottom nav targets and a
+   Close pinned at the bottom of any panel that lacked one.
+   ============================================================ */
+body.onehand .card{padding:11px;border-radius:18px;margin:0 0 6px}
+body.onehand .sumcard{padding:12px 11px 11px;border-radius:18px;margin:0 0 6px}
+body.onehand .sect{font-size:15px;margin:9px 4px 5px}
+body.onehand .setcard{padding:2px 0}
+body.onehand .setcard .lrow{padding:5px 13px}
+body.onehand .txrow, body.onehand .budrow, body.onehand .recrow, body.onehand .walletrow{padding:6px 3px;gap:10px}
+body.onehand .goalcard{padding:7px 3px;gap:11px}
+body.onehand .card.list .lrow{padding:7px 3px}
+body.onehand .catico{width:30px;height:30px}
+body.onehand .catico svg{width:15px;height:15px}
+body.onehand .kpi{padding:9px 10px 8px;border-radius:16px}
+body.onehand .kpi .kval{font-size:16.5px}
+body.onehand .qstat{padding:7px 7px;border-radius:13px}
+body.onehand .rowgap{gap:7px;margin-top:9px}
+body.onehand .hint{margin:6px 4px 0}
+/* shorter panels put their content and buttons nearer the thumb */
+body.onehand .sheetcard{max-height:74vh}
+body.onehand .sheet-body{padding:8px 12px 12px}
+body.onehand .sheet-actions{padding:8px 12px calc(12px + env(safe-area-inset-bottom,0px))}
+/* the add button comes down into the thumb zone */
+body.onehand #fab{bottom:108px;width:64px;height:64px}
+body.onehand .fabstack{bottom:184px}
+body.onehand #view{padding-bottom:118px}
+/* bigger, easier bottom nav targets */
+body.onehand #navbar{padding:7px 8px 9px}
+body.onehand .navbtn{padding:9px 0}
+body.onehand .navbtn .nic svg{width:23px;height:23px}
+
+/* the update card on Home */
+.updcard{border:1px solid var(--accent);background:linear-gradient(135deg,var(--glow2),transparent 70%)}

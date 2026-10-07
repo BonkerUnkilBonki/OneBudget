@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/aRoot" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="5dp"
+    android:background="@drawable/widget_bg_light">
+    <TextView android:id="@+id/aCell" android:layout_width="match_parent" android:layout_height="match_parent"
+        android:gravity="center" android:maxLines="1" android:ellipsize="end"
+        android:background="@drawable/widget_cell_light" android:text="@string/widget_add_long"
+        android:textSize="15sp" android:textStyle="bold" android:textColor="#1B6EF3" />
+</LinearLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mRoot" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="14dp"
+    android:background="@drawable/widget_bg_light">
+    <TextView android:id="@+id/mLabel" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="@string/widget_this_month" android:textSize="11sp" android:textStyle="bold" android:textColor="#767676" />
+    <TextView android:id="@+id/mAmount" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="₹0" android:textSize="26sp" android:textStyle="bold" android:includeFontPadding="false"
+        android:maxLines="1" android:ellipsize="end" android:textColor="#1B6EF3" />
+    <TextView android:id="@+id/mSub" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="" android:textSize="11sp" android:maxLines="1" android:ellipsize="end" android:textColor="#767676" />
+    <ImageView android:id="@+id/mChart" android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:layout_marginTop="7dp" android:scaleType="fitXY"
+        android:contentDescription="@string/widget_chart_desc" />
+    <TextView android:id="@+id/mTop" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="" android:textSize="10sp" android:maxLines="1" android:ellipsize="end"
+        android:layout_marginTop="4dp" android:textColor="#767676" />
+</LinearLayout>

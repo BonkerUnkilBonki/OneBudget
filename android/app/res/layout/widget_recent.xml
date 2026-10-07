@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rRoot" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="13dp"
+    android:background="@drawable/widget_bg_light">
+    <TextView android:id="@+id/rLabel" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="@string/widget_recent" android:textSize="11sp" android:textStyle="bold" android:textColor="#767676" />
+    <TextView android:id="@+id/r1" android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:gravity="center_vertical" android:maxLines="1" android:ellipsize="end"
+        android:layout_marginTop="4dp" android:text="" android:textSize="12sp" android:textStyle="bold" android:textColor="#191919" />
+    <TextView android:id="@+id/r2" android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:gravity="center_vertical" android:maxLines="1" android:ellipsize="end"
+        android:text="" android:textSize="12sp" android:textStyle="bold" android:textColor="#191919" />
+    <TextView android:id="@+id/r3" android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:gravity="center_vertical" android:maxLines="1" android:ellipsize="end"
+        android:text="" android:textSize="12sp" android:textStyle="bold" android:textColor="#191919" />
+</LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/iRoot" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="14dp" android:background="@drawable/widget_bg_light">
+    <TextView android:id="@+id/iLabel" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Money in" android:textSize="11sp" android:textStyle="bold" android:textColor="#767676" />
+    <TextView android:id="@+id/iAmount" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="₹0" android:textSize="25sp" android:textStyle="bold" android:includeFontPadding="false"
+        android:maxLines="1" android:ellipsize="end" android:textColor="#12B76A" />
+    <TextView android:id="@+id/iSub" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="" android:textSize="11sp" android:maxLines="1" android:ellipsize="end" android:textColor="#767676" />
+    <ImageView android:id="@+id/iBars" android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:layout_marginTop="7dp" android:scaleType="fitXY"
+        android:contentDescription="@string/widget_income_desc" />
+</LinearLayout>

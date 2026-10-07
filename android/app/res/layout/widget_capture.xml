@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cRoot" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="horizontal" android:padding="5dp"
+    android:background="@drawable/widget_bg_light">
+    <TextView android:id="@+id/cCam" android:layout_width="0dp" android:layout_height="match_parent"
+        android:layout_weight="1" android:gravity="center" android:maxLines="2" android:ellipsize="end"
+        android:paddingLeft="4dp" android:paddingRight="4dp" android:background="@drawable/widget_cell_light"
+        android:text="@string/widget_scan" android:textSize="13sp" android:textStyle="bold" android:textColor="#1B6EF3" />
+    <TextView android:id="@+id/cMic" android:layout_width="0dp" android:layout_height="match_parent"
+        android:layout_weight="1" android:layout_marginLeft="5dp" android:gravity="center" android:maxLines="2"
+        android:ellipsize="end" android:paddingLeft="4dp" android:paddingRight="4dp"
+        android:background="@drawable/widget_cell_light" android:text="@string/widget_speak"
+        android:textSize="13sp" android:textStyle="bold" android:textColor="#1B6EF3" />
+</LinearLayout>
